@@ -1,11 +1,8 @@
 package io.javabrains;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.engine.descriptor.TestInstanceLifecycleUtils;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MathUtilsTest {
 
     MathUtils mathUtils;
@@ -26,6 +23,7 @@ class MathUtilsTest {
     }
 
     @Test
+    @DisplayName("Testing add method")
     void testAdd() {
         int expected = 2;
         int actual = mathUtils.add(1, 1);
@@ -41,4 +39,12 @@ class MathUtilsTest {
     void testComputeCircleArea() {
         assertEquals(314.1592653589793, mathUtils.computeCircleArea(10), "Should return circle area");
     }
+
+    @Test
+    @Disabled
+    @DisplayName("TDD method. Should not run.")
+    void testDisabled() {
+        fail("This test should be disabled");
+    }
+
 }
