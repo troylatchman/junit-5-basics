@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 class MathUtilsTest {
 
     MathUtils mathUtils;
+    TestInfo testInfo;
+    TestReporter testReporter;
 
     @BeforeAll
     static void beforeAllInit() {
@@ -15,8 +17,11 @@ class MathUtilsTest {
     }
 
     @BeforeEach
-    void init() {
+    void init(TestInfo testInfo, TestReporter testReporter) {
+        this.testInfo = testInfo;
+        this.testReporter = testReporter;
         mathUtils = new MathUtils();
+        testReporter.publishEntry("Running " + testInfo.getDisplayName() + " with tags " + testInfo.getTags());
     }
 
     @AfterEach
@@ -49,6 +54,8 @@ class MathUtilsTest {
     @DisplayName("multiply method")
     @Tag("Math")
     void testMultiple() {
+//        System.out.println("Running " + testInfo.getDisplayName() + " with tags " + testInfo.getTags());
+//        testReporter.publishEntry("Running " + testInfo.getDisplayName() + " with tags " + testInfo.getTags());
         assertAll(
                 () -> assertEquals(4, mathUtils.multiply(2, 2)),
                 () -> assertEquals(0, mathUtils.multiply(2, 0)),
