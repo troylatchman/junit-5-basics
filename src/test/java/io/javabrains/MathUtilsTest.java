@@ -23,12 +23,22 @@ class MathUtilsTest {
         System.out.println("Cleaning up...");
     }
 
-    @Test
-    @DisplayName("Testing add method")
-    void testAdd() {
-        int expected = 2;
-        int actual = mathUtils.add(1, 1);
-        assertEquals(expected, actual, "The add method should add two numbers");
+    @Nested
+    @DisplayName("add method")
+    class AddTest {
+
+        @Test
+        @DisplayName("when adding two positive numbers")
+        void testAddPositive() {
+            assertEquals(2, mathUtils.add(1,1), "should return the right sum");
+        }
+
+        @Test
+        @DisplayName("when adding two negative numbers")
+        void testAddNegative() {
+            assertEquals(-2, mathUtils.add(-1,-1), "should return the right sum");
+        }
+
     }
 
     @Test
