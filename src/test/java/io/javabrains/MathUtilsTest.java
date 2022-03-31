@@ -26,6 +26,7 @@ class MathUtilsTest {
 
     @Nested
     @DisplayName("add method")
+    @Tag("Math")
     class AddTest {
 
         @Test
@@ -46,6 +47,7 @@ class MathUtilsTest {
 
     @Test
     @DisplayName("multiply method")
+    @Tag("Math")
     void testMultiple() {
         assertAll(
                 () -> assertEquals(4, mathUtils.multiply(2, 2)),
@@ -55,6 +57,7 @@ class MathUtilsTest {
     }
 
     @Test
+    @Tag("Math")
 //    @EnabledOnOs(OS.LINUX)
     void testDivide() {
         boolean isServerUp = false;
@@ -63,6 +66,7 @@ class MathUtilsTest {
     }
 
     @RepeatedTest(3)
+    @Tag("Circle")
     void testComputeCircleArea(RepetitionInfo repetitionInfo) {
         System.out.println("testComputeCircleArea attempt number: " + repetitionInfo.getCurrentRepetition());
         assertEquals(314.1592653589793, mathUtils.computeCircleArea(10), "Should return circle area");
