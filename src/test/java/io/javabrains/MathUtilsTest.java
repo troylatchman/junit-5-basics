@@ -62,8 +62,9 @@ class MathUtilsTest {
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1, 0), "Divide by zero should throw");
     }
 
-    @Test
-    void testComputeCircleArea() {
+    @RepeatedTest(3)
+    void testComputeCircleArea(RepetitionInfo repetitionInfo) {
+        System.out.println("testComputeCircleArea attempt number: " + repetitionInfo.getCurrentRepetition());
         assertEquals(314.1592653589793, mathUtils.computeCircleArea(10), "Should return circle area");
     }
 
