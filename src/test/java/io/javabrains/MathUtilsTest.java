@@ -2,6 +2,7 @@ package io.javabrains;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 class MathUtilsTest {
 
@@ -31,7 +32,10 @@ class MathUtilsTest {
     }
 
     @Test
+//    @EnabledOnOs(OS.LINUX)
     void testDivide() {
+        boolean isServerUp = false;
+        assumeTrue(isServerUp);
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1, 0), "Divide by zero should throw");
     }
 
