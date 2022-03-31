@@ -1,8 +1,9 @@
 package io.javabrains;
 
 import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assumptions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class MathUtilsTest {
 
@@ -30,15 +31,25 @@ class MathUtilsTest {
         @Test
         @DisplayName("when adding two positive numbers")
         void testAddPositive() {
-            assertEquals(2, mathUtils.add(1,1), "should return the right sum");
+            assertEquals(2, mathUtils.add(1, 1), "should return the right sum");
         }
 
         @Test
         @DisplayName("when adding two negative numbers")
         void testAddNegative() {
-            assertEquals(-2, mathUtils.add(-1,-1), "should return the right sum");
+            assertEquals(-2, mathUtils.add(-1, -1), "should return the right sum");
         }
 
+    }
+
+    @Test
+    @DisplayName("multiply method")
+    void testMultiple() {
+        assertAll(
+                () -> assertEquals(4, mathUtils.multiply(2, 2)),
+                () -> assertEquals(0, mathUtils.multiply(2, 0)),
+                () -> assertEquals(-2, mathUtils.multiply(2, -1))
+        );
     }
 
     @Test
